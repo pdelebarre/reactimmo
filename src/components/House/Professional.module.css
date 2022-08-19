@@ -1,0 +1,23 @@
+.logo {
+  width: 35%;
+  height: auto;
+  border-radius: 50%;
+  /* margin-bottom: 20px; */
+}
+
+.name {
+  font-size: 60%;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.container {
+  max-height: 3.5rem;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8);
+  top: -2rem;
+  left: -47rem;
+  z-index: 1;
+  padding: 0.2rem;
+}
