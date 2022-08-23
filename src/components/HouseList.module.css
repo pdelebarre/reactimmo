@@ -1,7 +1,6 @@
 .container {
-  margin: 2rem;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
+  margin: 3em;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }

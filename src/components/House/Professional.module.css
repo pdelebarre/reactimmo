@@ -13,11 +13,17 @@
 }
 
 .container {
-  max-height: 3.5rem;
-  position: relative;
+  /* max-height: 3.5rem; */
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: rgba(255, 255, 255, 0.8);
-  top: -2rem;
-  left: -47rem;
-  z-index: 1;
-  padding: 0.2rem;
+  border-radius: 1em;
+  margin: -1.2em 1em 0 1em;
+
+  /* top: -2rem; */
+  /* left: -47rem; */
+  /* z-index: 1; */
+  /* padding: 0.2rem; */
 }

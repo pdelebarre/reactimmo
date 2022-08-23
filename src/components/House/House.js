@@ -7,8 +7,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import { Navigation } from "swiper";
 
-import "swiper/css";
-import "swiper/css/navigation";
+// import "swiper/css";
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
+// import "swiper/css/navigation";
+import "swiper/modules/navigation/navigation.min.css";
 
 import { MdFavoriteBorder, MdFavorite, MdOutlineCancel } from "react-icons/md";
 
@@ -38,29 +41,34 @@ const House = (props) => {
 
   const content = (
     <div className={classes.container}>
-      <Swiper
-        className={classes.images__container}
-        navigation={true}
-        modules={[Navigation]}
-      >
-        {props.photos.map((image, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <img src={image} className={classes.image} alt="no pix" />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
-
-      <Details className={classes.details__container} house={props} />
-
-      <Professional professional={props.professional} />
-      <section className={classes.actions__container}>
-        <MdOutlineCancel className={classes.button} onClick={discardHandler} />
-        <div className={classes.button} onClick={toggleFavoriteHandler}>
-          {isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
-        </div>
-      </section>
+      <div className={classes.header__container}>
+        <Professional professional={props.professional} />
+        <section className={classes.actions__container}>
+          <MdOutlineCancel
+            className={classes.button}
+            onClick={discardHandler}
+          />
+          <div className={classes.button} onClick={toggleFavoriteHandler}>
+            {isFavorite ? <MdFavorite color={"red"} /> : <MdFavoriteBorder />}
+          </div>
+        </section>
+      </div>
+      <div className={classes.description}>
+        <Swiper
+          className={classes.images__container}
+          navigation={true}
+          modules={[Navigation]}
+        >
+          {props.photos.map((image, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <img src={image} className={classes.image} alt="no pix" />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+        <Details className={classes.details__container} house={props} />
+      </div>
     </div>
   );
 
