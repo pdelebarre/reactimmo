@@ -7,11 +7,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import { Navigation } from "swiper";
 
-// import "swiper/css";
-import "swiper/swiper-bundle.min.css";
-import "swiper/swiper.min.css";
-// import "swiper/css/navigation";
-import "swiper/modules/navigation/navigation.min.css";
+import "swiper/css";
+// import "swiper/swiper-bundle.min.css";
+// import "swiper/swiper.min.css";
+import "swiper/css/navigation";
+// import "swiper/modules/navigation/navigation.min.css";
 
 import { MdFavoriteBorder, MdFavorite, MdOutlineCancel } from "react-icons/md";
 
