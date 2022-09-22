@@ -4,6 +4,7 @@ import classes from "./Map.module.css";
 
 import { Icon } from "@iconify/react";
 import locationIcon from "@iconify/icons-mdi/map-marker";
+import { GOOGLEAPI } from "../../../env/googlekey";
 
 const LocationPin = ({ text }) => (
   <div className={classes["pin"]}>
@@ -18,7 +19,7 @@ const Map = ({ location, zoomLevel }) => (
 
     <div className={classes["google-map"]}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyDehBtJAE1wd02MruLtnlUIp7_xeb3mZa0" }}
+        bootstrapURLKeys={{ key: GOOGLEAPI }}
         defaultCenter={location}
         defaultZoom={zoomLevel}
       >
