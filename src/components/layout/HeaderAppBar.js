@@ -10,11 +10,11 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 
 import MUISearchBar from "./MUISearchBar";
-import { Button } from "@mui/material";
 
 export default function HeaderAppBar({ setHouseHandler }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -80,6 +80,14 @@ export default function HeaderAppBar({ setHouseHandler }) {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
+        <IconButton size="large" aria-label="favorites" color="inherit">
+          <Badge badgeContent={20} color="error">
+            <FavoriteIcon />
+          </Badge>
+        </IconButton>
+        <p>Favoris</p>
+      </MenuItem>
+      <MenuItem>
         <IconButton size="large" aria-label="show 40 new mails" color="inherit">
           <Badge badgeContent={40} color="error">
             <MailIcon />
@@ -136,9 +144,15 @@ export default function HeaderAppBar({ setHouseHandler }) {
             React Immo
           </Typography>
           <MUISearchBar setHouseHandler={setHouseHandler} />
-          <Button>Click</Button>
+          {/* <Button>Click</Button> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <IconButton size="large" aria-label="favorites" color="inherit">
+              <Badge badgeContent={20} color="error">
+                <FavoriteIcon />
+              </Badge>
+            </IconButton>
+
             <IconButton
               size="large"
               aria-label="show 40 new mails"
