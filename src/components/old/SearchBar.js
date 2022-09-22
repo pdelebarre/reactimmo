@@ -1,8 +1,7 @@
+import { Button, Input } from "@mui/material";
 import React, { useState } from "react";
 
 import classes from "./SearchBar.module.css";
-
-import { Button, Input, InputGroup } from "@chakra-ui/react";
 
 // import { fetchHouses } from "../apis/fetch-houses";
 
@@ -59,19 +58,13 @@ const SearchBar = ({ setHousesHandler }) => {
 
   return (
     <div className={classes.container}>
-      <InputGroup>
-        <Input
-          type="text"
-          value={location}
-          focusBorderColor="lime"
-          placeholder="Entrez la ville de vos reves"
-          size="md"
-          onChange={changeHandler}
-        />
-        <Button colorScheme="teal" size="md" onClick={housesHandler}>
-          OK
-        </Button>
-      </InputGroup>
+      <Input
+        type="text"
+        value={location}
+        placeholder="Entrez la ville de vos reves"
+        onChange={changeHandler}
+      />
+      <Button onClick={housesHandler}>OK</Button>
     </div>
   );
 };

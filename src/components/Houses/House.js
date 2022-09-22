@@ -25,7 +25,6 @@ const House = (props) => {
   const isFavorite = favoritesCtx.itemIsFavorite(props.id);
 
   const [isDiscarded, setIsDiscarded] = useState(false);
-  // const [isFavorite, setIsFavorite] = useState(false);
 
   const discardHandler = () => {
     return setIsDiscarded(true);
@@ -58,11 +57,18 @@ const House = (props) => {
           className={classes.images__container}
           navigation={true}
           modules={[Navigation]}
+          preloadImages={false}
+          lazy={true}
         >
           {props.photos.map((image, index) => {
             return (
               <SwiperSlide key={index}>
-                <img src={image} className={classes.image} alt="no pix" />
+                <img
+                  src={image}
+                  className={classes.image}
+                  alt="no pix"
+                  loading="lazy"
+                />
               </SwiperSlide>
             );
           })}
@@ -72,9 +78,7 @@ const House = (props) => {
     </div>
   );
 
-  return <div className={classes.house}>{isDiscarded ? null : content}</div>;
-
-  // return <div className={classes.house}>House</div>;
+  return !isDiscarded && content;
 };
 
 export default House;

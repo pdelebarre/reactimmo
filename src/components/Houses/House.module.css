@@ -1,10 +1,11 @@
 .container {
-  box-shadow: 0 0 10px 5px lightgrey;
+  box-shadow: 0 0 10px 5px rgb(233, 184, 184);
   border-radius: 25px;
   min-width: 15rem;
-  margin-top: 3em;
+  margin-bottom: 3.5em;
   display: flex;
   flex-direction: column;
+  border: 1px solid;
 }
 
 .header__container {
