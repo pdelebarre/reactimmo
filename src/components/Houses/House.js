@@ -13,7 +13,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 // import "swiper/modules/navigation/navigation.min.css";
 
-import { MdFavoriteBorder, MdFavorite, MdOutlineCancel } from "react-icons/md";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 import classes from "./House.module.css";
 import Professional from "./Professional";
@@ -27,6 +29,8 @@ const House = (props) => {
   const [isDiscarded, setIsDiscarded] = useState(false);
 
   const discardHandler = () => {
+    favoritesCtx.itemIsFavorite(props.id) &&
+      favoritesCtx.removeFavorite(props.id);
     return setIsDiscarded(true);
   };
 
@@ -43,12 +47,12 @@ const House = (props) => {
       <div className={classes.header__container}>
         <Professional professional={props.professional} />
         <section className={classes.actions__container}>
-          <MdOutlineCancel
+          <HighlightOffIcon
             className={classes.button}
             onClick={discardHandler}
           />
           <div className={classes.button} onClick={toggleFavoriteHandler}>
-            {isFavorite ? <MdFavorite color={"red"} /> : <MdFavoriteBorder />}
+            {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
           </div>
         </section>
       </div>

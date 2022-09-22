@@ -1,4 +1,5 @@
-import * as React from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -16,9 +17,14 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 
 import MUISearchBar from "./MUISearchBar";
 
-export default function HeaderAppBar({ setHouseHandler }) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+import FavoritesContext from "../../store/favorites-context";
+
+const HeaderAppBar = (props) => {
+  const navigate = useNavigate();
+  const favoritesCtx = useContext(FavoritesContext);
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -38,6 +44,10 @@ export default function HeaderAppBar({ setHouseHandler }) {
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+  const handleFavoritesClick = (pageURL) => {
+    navigate(pageURL);
   };
 
   const menuId = "primary-search-account-menu";
@@ -143,13 +153,15 @@ export default function HeaderAppBar({ setHouseHandler }) {
           >
             React Immo
           </Typography>
-          <MUISearchBar setHouseHandler={setHouseHandler} />
+          <MUISearchBar />
           {/* <Button>Click</Button> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton size="large" aria-label="favorites" color="inherit">
-              <Badge badgeContent={20} color="error">
-                <FavoriteIcon />
+              <Badge badgeContent={favoritesCtx.totalFavorites} color="error">
+                <FavoriteIcon
+                  onClick={() => handleFavoritesClick("/favorites")}
+                />
               </Badge>
             </IconButton>
 
@@ -201,4 +213,6 @@ export default function HeaderAppBar({ setHouseHandler }) {
       {renderMenu}
     </Box>
   );
-}
+};
+
+export default HeaderAppBar;
