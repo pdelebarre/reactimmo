@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 import FavoritesPage from "./pages/Favorites";
 import SearchPage from "./pages/Search";
 
-import Layout from "./components/layout/Layout";
 import HeaderAppBar from "./components/layout/HeaderAppBar";
 import FooterNavigation from "./components/layout/FooterNavigation";
 

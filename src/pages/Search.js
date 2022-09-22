@@ -1,15 +1,15 @@
-import React, { useState, useContext, Suspense } from "react";
+import React, { Suspense } from "react";
 
 import HousesList from "../components/Houses/HousesList";
 // import SearchBar from "../components/Houses/SearchBar";
 
 import { DUMMY_HOUSES } from "../test/dummy";
 
-import PreferencesContext from "../store/preferences-context";
-import { Box, FormControl, FormLabel, Switch } from "@mui/material";
+import { Box } from "@mui/material";
 
 function SearchPage() {
-  const [houses, setHouses] = useState(DUMMY_HOUSES.items);
+  // const [houses, setHouses] = useState(DUMMY_HOUSES.items);
+  const houses = DUMMY_HOUSES.items;
 
   // const pref = useContext(PreferencesContext);
 
