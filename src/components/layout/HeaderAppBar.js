@@ -1,4 +1,5 @@
-import * as React from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,15 +11,20 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 
 import MUISearchBar from "./MUISearchBar";
-import { Button } from "@mui/material";
 
-export default function HeaderAppBar({ setHouseHandler }) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+import FavoritesContext from "../../store/favorites-context";
+
+const HeaderAppBar = (props) => {
+  const navigate = useNavigate();
+  const favoritesCtx = useContext(FavoritesContext);
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -38,6 +44,10 @@ export default function HeaderAppBar({ setHouseHandler }) {
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+  const handleFavoritesClick = (pageURL) => {
+    navigate(pageURL);
   };
 
   const menuId = "primary-search-account-menu";
@@ -79,6 +89,14 @@ export default function HeaderAppBar({ setHouseHandler }) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <MenuItem>
+        <IconButton size="large" aria-label="favorites" color="inherit">
+          <Badge badgeContent={20} color="error">
+            <FavoriteIcon />
+          </Badge>
+        </IconButton>
+        <p>Favoris</p>
+      </MenuItem>
       <MenuItem>
         <IconButton size="large" aria-label="show 40 new mails" color="inherit">
           <Badge badgeContent={40} color="error">
@@ -135,10 +153,18 @@ export default function HeaderAppBar({ setHouseHandler }) {
           >
             React Immo
           </Typography>
-          <MUISearchBar setHouseHandler={setHouseHandler} />
-          <Button>Click</Button>
+          <MUISearchBar />
+          {/* <Button>Click</Button> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <IconButton size="large" aria-label="favorites" color="inherit">
+              <Badge badgeContent={favoritesCtx.totalFavorites} color="error">
+                <FavoriteIcon
+                  onClick={() => handleFavoritesClick("/favorites")}
+                />
+              </Badge>
+            </IconButton>
+
             <IconButton
               size="large"
               aria-label="show 40 new mails"
@@ -187,4 +213,6 @@ export default function HeaderAppBar({ setHouseHandler }) {
       {renderMenu}
     </Box>
   );
-}
+};
+
+export default HeaderAppBar;
