@@ -29,15 +29,12 @@ function SearchPage() {
       p="6"
       rounded="md"
       bg="white"
-      borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
       alignItems="center"
-      minW="3xl"
-      maxW="3xl"
     >
       {/* {!pref.testMode && (
-        <SearchBar maxW="3em" setHousesHandler={setHousesHandler} />
+        <SearchBar setHousesHandler={setHousesHandler} />
       )} */}
       {/* <FormControl display="flex" alignItems="center">
         <FormLabel htmlFor="test-mode" mb="0">
