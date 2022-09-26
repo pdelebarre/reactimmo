@@ -17,7 +17,7 @@ const App = () => {
 
         <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
-      <FooterNavigation />
+      {/* <FooterNavigation /> */}
     </>
   );
 };

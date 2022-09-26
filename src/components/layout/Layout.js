@@ -12,7 +12,7 @@ function Layout(props) {
       {/* <MainNavigation /> */}
       <BasicBreadcrumbs />
       <main>{props.children}</main>
-      <FooterNavigation />
+      {/* <FooterNavigation /> */}
     </Box>
   );
 }

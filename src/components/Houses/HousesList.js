@@ -11,7 +11,7 @@ const HousesList = (props) => {
   // console.log("houses :>> ", houses);
 
   return (
-    <Box component="main" sx={{ maxHeight: "40em", overflow: "auto" }}>
+    <Box component="main" sx={{ overflow: "auto" }}>
       <div className={classes.container}>
         {houses.map((house) => (
           <House key={house.id} {...house} />
