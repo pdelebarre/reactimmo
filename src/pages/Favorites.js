@@ -6,6 +6,8 @@ import FavoritesContext from "../store/favorites-context";
 const FavoritesPage = () => {
   const favoritesCtx = useContext(FavoritesContext);
 
+  console.log("favoritesCtx :>> ", favoritesCtx);
+
   let content;
 
   if (favoritesCtx.totalFavorites === 0) {
