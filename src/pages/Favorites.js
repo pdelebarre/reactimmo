@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import HousesList from "../components/Houses/HousesList";
 
 import FavoritesContext from "../store/favorites-context";
