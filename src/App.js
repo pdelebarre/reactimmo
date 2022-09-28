@@ -5,7 +5,7 @@ import FavoritesPage from "./pages/Favorites";
 import SearchPage from "./pages/Search";
 
 import HeaderAppBar from "./components/layout/HeaderAppBar";
-// import FooterNavigation from "./components/layout/FooterNavigation";
+
 
 const App = () => {
   return (
@@ -18,7 +18,7 @@ const App = () => {
 
         <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
-      {/* <FooterNavigation /> */}
+
     </>
   );
 };
