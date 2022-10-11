@@ -24,15 +24,7 @@ function SearchPage() {
   // }
 
   return (
-    <Box
-      boxShadow="xs"
-      p="6"
-      rounded="md"
-      bg="white"
-      borderRadius="lg"
-      overflow="hidden"
-      alignItems="center"
-    >
+    <Box>
       {/* {!pref.testMode && (
         <SearchBar setHousesHandler={setHousesHandler} />
       )} */}

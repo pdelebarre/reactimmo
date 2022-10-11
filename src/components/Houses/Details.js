@@ -1,7 +1,7 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import React, { lazy, useState } from "react";
 import classes from "./Details.module.css";
-const ModalCard = lazy(() => import("./Detail/material/ModalCard"));
+const ModalCard = lazy(() => import("./Detail/ModalCard"));
 
 // import Modal from "../../UI/Modal";
 // import ModalHouse from "./Detail/ModalCard";
@@ -19,17 +19,17 @@ const Details = (props) => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className={classes.container}>
-      <div className={classes.type}>{transactionType}</div>
-      <div className={classes.price}>{house.price} €</div>
-      <div className={classes.title}>{house.title}</div>
-      <div className={classes.description}>{description}</div>
-      <div className={classes.location}>{house.city}</div>
-      <div>
+    <Box className={classes.container}>
+      <Box className={classes.type}>{transactionType}</Box>
+      <Box className={classes.price}>{house.price} €</Box>
+      <Box className={classes.title}>{house.title}</Box>
+      <Box className={classes.description}>{description}</Box>
+      <Box className={classes.location}>{house.city}</Box>
+      <Box>
         <Button onClick={handleOpen}>...</Button>
         <ModalCard open={open} onClose={handleClose} house={house} />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

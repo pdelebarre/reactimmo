@@ -6,7 +6,6 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-
 import Professional from "./Professional";
 
 import FavoritesContext from "../../store/favorites-context";
@@ -41,16 +40,14 @@ const House = (props) => {
 
   const content = (
     <Card sx={{ display: "flex", flexDirection: "column", mt: 5 }}>
-      <Card sx={{ display: "flex" }}>
-        <Professional professional={props.professional} />
+      <Professional professional={props.professional} />
 
-        <Box sx={{ display: "flex" }}>
-          <HighlightOffIcon onClick={discardHandler} />
-          <Box onClick={toggleFavoriteHandler}>
-            {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-          </Box>
+      <Box sx={{ display: "flex" }}>
+        <HighlightOffIcon onClick={discardHandler} />
+        <Box onClick={toggleFavoriteHandler}>
+          {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
         </Box>
-      </Card>
+      </Box>
       <Box sx={{ display: "flex" }}>
         <Carousel
           images={images}
@@ -60,7 +57,6 @@ const House = (props) => {
         <Details house={props} />
       </Box>
     </Card>
-
   );
 
   return !isDiscarded && content;
