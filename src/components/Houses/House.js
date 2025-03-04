@@ -50,6 +50,7 @@ const House = (props) => {
       </Box>
       <Box sx={{ display: "flex" }}>
         <Carousel
+          key={props.id}
           images={images}
           shouldLazyLoad={true}
           style={{ height: 300, width: 300 }}
